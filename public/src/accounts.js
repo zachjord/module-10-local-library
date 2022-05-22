@@ -5,10 +5,7 @@ function sortAccountsByLastName(accounts) {
 }
 
 const getBooksBorrowedByAccount = (account, books) => books.filter(book => book.borrows.some(bookId => bookId.id === account.id));
-
-function getTotalNumberOfBorrows(account, books) {
-  return books.filter((book) => (book.borrows).some((bookId) => bookId.id === account.id)).length;
-}
+const getTotalNumberOfBorrows = (account, books) => getBooksBorrowedByAccount(account, books).length;
 
 // The "books" array is filtered with the results from the matched
 // borrower and account id that is still checked out.
