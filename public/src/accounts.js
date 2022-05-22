@@ -4,6 +4,8 @@ function sortAccountsByLastName(accounts) {
   return accounts.sort((accA, accB) => accA.name.last.toLowerCase() > accB.name.last.toLowerCase() ? 1 : -1);
 }
 
+const getBooksBorrowedByAccount = (account, books) => books.filter(book => book.borrows.some(bookId => bookId.id === account.id));
+
 function getTotalNumberOfBorrows(account, books) {
   return books.filter((book) => (book.borrows).some((bookId) => bookId.id === account.id)).length;
 }
