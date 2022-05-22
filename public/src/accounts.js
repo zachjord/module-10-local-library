@@ -1,4 +1,4 @@
-const findAccountById = (accounts, id) => accounts.find((account) => account.id === id);
+const findAccountById = (accounts, id) => accounts.find(account => account.id === id);
 
 function sortAccountsByLastName(accounts) {
   return accounts.sort((accA, accB) => accA.name.last.toLowerCase() > accB.name.last.toLowerCase() ? 1 : -1);
@@ -11,7 +11,7 @@ const getTotalNumberOfBorrows = (account, books) => getBooksBorrowedByAccount(ac
 // borrower and account id that is still checked out.
 // A new array is mapped to include the mathed author object.
 function getBooksPossessedByAccount(account, books, authors) {
-  return books.filter((book) => book.borrows.find((borrower) => borrower.id === account.id && !borrower.returned))
+  return books.filter(book => book.borrows.find(borrower => borrower.id === account.id && !borrower.returned))
   .map(book => { const author = authors.find(author => author.id === book.authorId)
       book.author = author; 
       return book;});  
