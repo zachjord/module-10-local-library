@@ -2,7 +2,7 @@ const getTotalBooksCount = books => books.length;
 const getTotalAccountsCount = accounts => accounts.length;
 
 function getBooksBorrowedCount(books) {
-  let bookStatus = books.filter((book) => book.borrows.filter((status) => status.returned === false).length > 0);
+  let bookStatus = books.filter(book => book.borrows.filter(status => status.returned === false).length > 0);
   return bookStatus.length;
 }
 
@@ -24,12 +24,12 @@ function getMostPopularBooks(books) {
 // totals per author are pushed to the authorList array.
 function getMostPopularAuthors(books, authors) {
   const authorList = []
-  authors.forEach((author)=> {
+  authors.forEach(author => {
     const authorName = {
       name: `${author.name.first} ${author.name.last}`,
       count: 0
      };
-  books.forEach((book)=> {
+  books.forEach(book => {
     if(book.authorId === author.id) {
       authorName.count += book.borrows.length;
     }
